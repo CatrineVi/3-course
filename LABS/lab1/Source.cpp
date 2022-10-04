@@ -44,34 +44,35 @@ public:
 	// деструктор
 	~Memory() { name = ""; speed_reading = 0; speed_writing = 0; }
 
-	// оператор= присваивания (a=b)
-	/*Memory operator=(Memory a)
-	{
-		name = a.name;
-		speed_reading = a.speed_reading;
-		speed_writing = a.speed_writing;
-		return *this;
-	}*/
-
 	//оператор = для разного типа данных
 	//Memory operator=(type a);
 
 	//оператор< сравнения (a<b)
-	bool operator<(Memory a)
+	bool operator<(const Memory& a)
 	{
 		float speed_reading1 = speed_reading;
 		float speed_reading2 = a.speed_reading;
 		return (speed_reading1 < speed_reading2);
 	}
 
-	virtual string getName() { return name; }
-	virtual float getSpeed_reading() { return speed_reading; }
-	virtual float getSpeed_writing() { return speed_writing; }
+	string getName() { return name; }
+	float getSpeed_reading() { return speed_reading; }
+	float getSpeed_writing() { return speed_writing; }
 
 	virtual void reading() const = 0;
 	virtual void writing() const = 0;
 
+	friend ostream& operator<<(ostream& out, Memory& a);
 };
+
+// оператор<< вывод (cout << a)
+ostream& operator<<(ostream& out, Memory& a)
+{
+	out << "Name: " << a.getName() << endl;
+	out << "Speed reading: " << a.getSpeed_reading() << endl;
+	out << "Speed writing: " << a.getSpeed_writing() << endl;
+	return out;
+}
 
 class HDD : public Memory
 {
@@ -81,8 +82,28 @@ public:
 	HDD(string name, float speed_reading, float speed_writing, float memory_capacity)
 		:Memory(name,speed_reading,speed_writing)
 	{ this->memory_capacity = memory_capacity; }
-	HDD(Memory& a) {}
-	~HDD() { }
+	HDD(HDD& a) : Memory(a)
+	{
+		memory_capacity = a.memory_capacity;
+	}
+	~HDD() { name = ""; speed_reading = 0; speed_writing = 0; memory_capacity = 0; }
+
+	// оператор= присваивания (a=b)
+	HDD& operator=(const HDD& a)
+	{
+		if (this == &a)
+			return *this;
+		this->name = a.name;
+		this->speed_reading = a.speed_reading;
+		this->speed_writing = a.speed_writing;
+		this->memory_capacity = a.memory_capacity;
+		return *this;
+	}
+
+	float service_time()
+	{
+		return (speed_reading * speed_writing);
+	}
 
 	string getName() { return name; }
 	float getSpeed_reading() { return speed_reading; }
@@ -94,9 +115,13 @@ public:
 };
 
 // оператор<< вывод (cout << a)
-ostream& operator<<(ostream& str, HDD a)
+ostream& operator<<(ostream& out, HDD& a)
 {
-	return(str << a.getName() << " " << a.getSpeed_reading() << " " << a.getSpeed_writing() << " " << a.getMemory_capacity() << endl);
+	out << "Name: " << a.getName() << endl;
+	out << "Speed reading: " << a.getSpeed_reading() << endl;
+	out << "Speed writing: " << a.getSpeed_writing() << endl;
+	out << "Memory capacity: " << a.getMemory_capacity() << endl;
+	return out;
 }
 
 class SSD : public Memory
@@ -109,8 +134,28 @@ public:
 	{
 		this->memory_capacity = memory_capacity;
 	}
-	//SSD(Memory& a) {}
-	~SSD() { }
+	SSD(SSD& a): Memory(a) 
+	{
+		memory_capacity = a.memory_capacity;
+	}
+	~SSD() { name = ""; speed_reading = 0; speed_writing = 0; memory_capacity = 0; }
+
+	float service_time()
+	{
+		return (speed_reading * memory_capacity);
+	}
+
+	// оператор= присваивания (a=b)
+	SSD& operator=(const SSD& a)
+	{
+		if (this == &a)
+			return *this;
+		this->name = a.name;
+		this->speed_reading = a.speed_reading;
+		this->speed_writing = a.speed_writing;
+		this->memory_capacity = a.memory_capacity;
+		return *this;
+	}
 
 	string getName() { return name; }
 	float getSpeed_reading() { return speed_reading; }
@@ -122,22 +167,92 @@ public:
 };
 
 // оператор<< вывод (cout << a)
-ostream& operator<<(ostream& str, SSD a)
+ostream& operator<<(ostream& out, SSD& a)
 {
-	return(str << a.getName() << " " << a.getSpeed_reading() << " " << a.getSpeed_writing() << " " << a.getMemory_capacity() << endl);
+	out << "Name: " << a.getName() << endl;
+	out << "Speed reading: " << a.getSpeed_reading() << endl;
+	out << "Speed writing: " << a.getSpeed_writing() << endl;
+	out << "Memory capacity: " << a.getMemory_capacity() << endl;
+	return out;
 }
 
 class RAM : public Memory
 {
+	float memory_capacity;
 public:
+	RAM() : memory_capacity(0) {}
+	RAM(string name, float speed_reading, float speed_writing, float memory_capacity)
+		:Memory(name, speed_reading, speed_writing)
+	{
+		this->memory_capacity = memory_capacity;
+	}
+	RAM(RAM& a):Memory(a)
+	{
+		memory_capacity = a.memory_capacity;
+	}
+	~RAM() { name = ""; speed_reading = 0; speed_writing = 0; memory_capacity = 0; }
+
+	float service_time()
+	{
+		return (memory_capacity * speed_writing);
+	}
+
+	// оператор= присваивания (a=b)
+	RAM& operator=(const RAM& a)
+	{
+		if (this == &a)
+			return *this;
+		this->name = a.name;
+		this->speed_reading = a.speed_reading;
+		this->speed_writing = a.speed_writing;
+		this->memory_capacity = a.memory_capacity;
+		return *this;
+	}
+
+	string getName() { return name; }
+	float getSpeed_reading() { return speed_reading; }
+	float getSpeed_writing() { return speed_writing; }
+	float getMemory_capacity() { return memory_capacity; }
+
 	void reading() const{}
 	void writing() const{}
 };
+
+// оператор<< вывод (cout << a)
+ostream& operator<<(ostream& out, RAM& a)
+{
+	out << "Name: " << a.getName() << endl;
+	out << "Speed reading: " << a.getSpeed_reading() << endl;
+	out << "Speed writing: " << a.getSpeed_writing() << endl;
+	out << "Memory capacity: " << a.getMemory_capacity() << endl;
+	return out;
+}
 
 int main()
 {
 	HDD a("HDD",65,54,10000);
 	cout << a;
-	
+	cout << endl;
+
+	SSD b("ssd", 59,74,512);
+	cout << b;
+	cout << endl;
+
+	if (b < a)
+		cout << b.getName() << " < " << a.getName() << endl;
+
+	cout << endl;
+
+	HDD c(a);
+	cout << c;
+	cout << endl;
+
+	HDD d;
+	d = a;
+	cout << d;
+	cout << endl;
+
+	cout << "Service time " << a.getName() << ": " << a.service_time() << endl;
+
 	return 0;
 }
