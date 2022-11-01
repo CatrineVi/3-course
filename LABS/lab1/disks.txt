@@ -1,0 +1,4 @@
+3
+SSD disk1 39 43
+HDD disk2 57 87
+RAM disk3 89 98

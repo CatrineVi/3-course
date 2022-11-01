@@ -1,6 +1,7 @@
-/*Создать абстрактный базовый класс Memory с виртуальными функциями считыания из памяти, запись в память. Поля класса, название,
-скорость чтения/записи. Реализовать произволные классы HHD, SSD, RAM, реализующие собственнные функции. Определить операторы и
-конструкторы:
+/* Lab1.1
+Создать абстрактный базовый класс Memory с виртуальными функциями считыания из памяти, запись в память.
+Поля класса, название, скорость чтения/записи. Реализовать произволные классы HHD, SSD, RAM, 
+реализующие собственнные функции. Определить операторы и конструкторы:
 	1. operator=
 	2. operator= для разного типа данных
 	3. operator<<
@@ -8,224 +9,64 @@
 	5. конструктор по умолчанию
 	6. конструктор копирования
 	7. деструктор
-Задание реализовать с разделением классов на интерфейс и реализацию. */
+Задание реализовать с разделением классов на интерфейс и реализацию.
 
-#include <iostream>;
-#include <fstream>;
-#include <string>;
+ Lab1.2
+ 1. добавить operator>>;
+ 2. для массива, состоящего из разных типов памяти, на основе operator>>, реализовать функцию 
+ считывания из файла их характеристик.
+ 3. на основе объектов из массива реализовать функцию расчета среднего значения параметра 
+ характеризующего отношение скорости чтения к скорости записи.
+*/
 
-using namespace std;
+#include "Memory.h";
+#include "HDD.h";
+#include "SSD.h";
+#include "RAM.h";
 
-class Memory
+//template <class Os> Overload(Os)->Overload<Os>;
+
+/*template <class Os> Os& operator<< (Os& os, const variant<HDD, SSD, RAM>& a)
 {
-protected:
-	string name;
-	float speed_reading, speed_writing;
-public:
-	// конструктор по умолчанию
-	Memory() : name(""), speed_reading(0), speed_writing(0) {}
+	/*os << "Name: " << visit(
+		Overload{
+			[](HDD b) {b.getName(); },
+			[](SSD b) {b.getName(); },
+			[](RAM b) {b.getName(); }
+		}, a) << endl;
 
-	// конструктор с параметрами
-	Memory(string name, float speed_reading, float speed_writing)
-	{
-		this->name = name;
-		this->speed_reading = speed_reading;
-		this->speed_writing = speed_writing;
-	}
+	os << "Name: " << visit([](const auto& k) {
+		using T = decay_t<decltype(k)>;
+		if constexpr (is_same_v < T, HDD>)
+			k.getName();
+		else if constexpr(is_same_v < T, SSD>)
+			k.getName();
+		else if constexpr (is_same_v<T, RAM>)
+			k.getName();
+		}, a);
+	
+	return os;
+}*/
 
-	// конструктор копирования
-	Memory(Memory& a)
-	{
-		name = a.name;
-		speed_reading = a.speed_reading;
-		speed_writing = a.speed_writing;
-	}
-
-	// деструктор
-	~Memory() { name = ""; speed_reading = 0; speed_writing = 0; }
-
-	//оператор = для разного типа данных
-	//Memory operator=(type a);
-
-	//оператор< сравнения (a<b)
-	bool operator<(const Memory& a)
-	{
-		float speed_reading1 = speed_reading;
-		float speed_reading2 = a.speed_reading;
-		return (speed_reading1 < speed_reading2);
-	}
-
-	string getName() { return name; }
-	float getSpeed_reading() { return speed_reading; }
-	float getSpeed_writing() { return speed_writing; }
-
-	virtual void reading() const = 0;
-	virtual void writing() const = 0;
-
-	friend ostream& operator<<(ostream& out, Memory& a);
+/*template<typename ... Ts>
+struct Overload : Ts ... {
+	using Ts::operator() ...;
 };
+template<class... Ts> Overload(Ts...)->Overload<Ts...>;
 
-// оператор<< вывод (cout << a)
-ostream& operator<<(ostream& out, Memory& a)
+auto TypeOfIntegral = Overload{
+		[](HDD& a) {cout << a; },
+		[](SSD& a) {cout << a; },
+		[](RAM& a) {cout << a; },
+};*/
+
+float Avg(vector<Memory*> m)
 {
-	out << "Name: " << a.getName() << endl;
-	out << "Speed reading: " << a.getSpeed_reading() << endl;
-	out << "Speed writing: " << a.getSpeed_writing() << endl;
-	return out;
-}
-
-class HDD : public Memory
-{
-	float memory_capacity;
-public:
-	HDD() : memory_capacity(0) {}
-	HDD(string name, float speed_reading, float speed_writing, float memory_capacity)
-		:Memory(name,speed_reading,speed_writing)
-	{ this->memory_capacity = memory_capacity; }
-	HDD(HDD& a) : Memory(a)
-	{
-		memory_capacity = a.memory_capacity;
-	}
-	~HDD() { name = ""; speed_reading = 0; speed_writing = 0; memory_capacity = 0; }
-
-	// оператор= присваивания (a=b)
-	HDD& operator=(const HDD& a)
-	{
-		if (this == &a)
-			return *this;
-		this->name = a.name;
-		this->speed_reading = a.speed_reading;
-		this->speed_writing = a.speed_writing;
-		this->memory_capacity = a.memory_capacity;
-		return *this;
-	}
-
-	float service_time()
-	{
-		return (speed_reading * speed_writing);
-	}
-
-	string getName() { return name; }
-	float getSpeed_reading() { return speed_reading; }
-	float getSpeed_writing() { return speed_writing; }
-	float getMemory_capacity() { return memory_capacity; }
-
-	void reading() const{}
-	void writing() const{}
-};
-
-// оператор<< вывод (cout << a)
-ostream& operator<<(ostream& out, HDD& a)
-{
-	out << "Name: " << a.getName() << endl;
-	out << "Speed reading: " << a.getSpeed_reading() << endl;
-	out << "Speed writing: " << a.getSpeed_writing() << endl;
-	out << "Memory capacity: " << a.getMemory_capacity() << endl;
-	return out;
-}
-
-class SSD : public Memory
-{
-	float memory_capacity;
-public:
-	SSD() : memory_capacity(0) {}
-	SSD(string name, float speed_reading, float speed_writing, float memory_capacity)
-		:Memory(name, speed_reading, speed_writing)
-	{
-		this->memory_capacity = memory_capacity;
-	}
-	SSD(SSD& a): Memory(a) 
-	{
-		memory_capacity = a.memory_capacity;
-	}
-	~SSD() { name = ""; speed_reading = 0; speed_writing = 0; memory_capacity = 0; }
-
-	float service_time()
-	{
-		return (speed_reading * memory_capacity);
-	}
-
-	// оператор= присваивания (a=b)
-	SSD& operator=(const SSD& a)
-	{
-		if (this == &a)
-			return *this;
-		this->name = a.name;
-		this->speed_reading = a.speed_reading;
-		this->speed_writing = a.speed_writing;
-		this->memory_capacity = a.memory_capacity;
-		return *this;
-	}
-
-	string getName() { return name; }
-	float getSpeed_reading() { return speed_reading; }
-	float getSpeed_writing() { return speed_writing; }
-	float getMemory_capacity() { return memory_capacity; }
-
-	void reading() const{}
-	void writing() const{}
-};
-
-// оператор<< вывод (cout << a)
-ostream& operator<<(ostream& out, SSD& a)
-{
-	out << "Name: " << a.getName() << endl;
-	out << "Speed reading: " << a.getSpeed_reading() << endl;
-	out << "Speed writing: " << a.getSpeed_writing() << endl;
-	out << "Memory capacity: " << a.getMemory_capacity() << endl;
-	return out;
-}
-
-class RAM : public Memory
-{
-	float memory_capacity;
-public:
-	RAM() : memory_capacity(0) {}
-	RAM(string name, float speed_reading, float speed_writing, float memory_capacity)
-		:Memory(name, speed_reading, speed_writing)
-	{
-		this->memory_capacity = memory_capacity;
-	}
-	RAM(RAM& a):Memory(a)
-	{
-		memory_capacity = a.memory_capacity;
-	}
-	~RAM() { name = ""; speed_reading = 0; speed_writing = 0; memory_capacity = 0; }
-
-	float service_time()
-	{
-		return (memory_capacity * speed_writing);
-	}
-
-	// оператор= присваивания (a=b)
-	RAM& operator=(const RAM& a)
-	{
-		if (this == &a)
-			return *this;
-		this->name = a.name;
-		this->speed_reading = a.speed_reading;
-		this->speed_writing = a.speed_writing;
-		this->memory_capacity = a.memory_capacity;
-		return *this;
-	}
-
-	string getName() { return name; }
-	float getSpeed_reading() { return speed_reading; }
-	float getSpeed_writing() { return speed_writing; }
-	float getMemory_capacity() { return memory_capacity; }
-
-	void reading() const{}
-	void writing() const{}
-};
-
-// оператор<< вывод (cout << a)
-ostream& operator<<(ostream& out, RAM& a)
-{
-	out << "Name: " << a.getName() << endl;
-	out << "Speed reading: " << a.getSpeed_reading() << endl;
-	out << "Speed writing: " << a.getSpeed_writing() << endl;
-	out << "Memory capacity: " << a.getMemory_capacity() << endl;
-	return out;
+	float avg=0;
+	for (int i = 0; i < m.size(); i++)
+		avg += m[i]->getSpeed_reading() / m[i]->getSpeed_writing();
+	avg = avg / m.size();
+	return avg;
 }
 
 int main()
@@ -254,5 +95,60 @@ int main()
 
 	cout << "Service time " << a.getName() << ": " << a.service_time() << endl;
 
+	RAM e;
+	//cin >> e;
+	//cout << e;
+
+	//vector<variant<HDD, SSD, RAM>> m;
+
+	vector<Memory*> m;
+
+	ifstream file("disks.txt");
+
+	if (!file.is_open()) 
+		cout << "Not found file!" << endl;
+	else
+	{
+		unsigned n = 0;
+		file >> n;
+		for (int i = 0; i < n; i++)
+		{
+			string type;
+			file >> type;
+			if (type == "HDD")
+			{
+				
+				HDD disk;
+				file >> disk;
+				Memory* p = new HDD(disk);
+				m.push_back(p);
+			}
+			else if (type == "SSD")
+			{
+				SSD disk;
+				file >> disk;
+				Memory* p = new SSD(disk);
+				m.push_back(p);
+			}
+			else if (type == "RAM")
+			{
+				RAM disk;
+				file >> disk;
+				Memory* p = new RAM(disk);
+				m.push_back(p);
+
+			}
+		}
+		
+		//visit(TypeOfIntegral, m[0]);
+	}
+	for (int i = 0; i < m.size(); i++)
+		cout << *m[i];
+
+	/*for (int i = 0; i < m.size(); i++) {
+		visit(TypeOfIntegral, m[i]);
+	}*/
+
+	cout << "\nAvg(r/w) = " << Avg(m);
 	return 0;
 }
