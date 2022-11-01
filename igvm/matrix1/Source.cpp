@@ -12,5 +12,6 @@ int main()
 	b.print();
 	Solver x;
 	x.Gauss(m, b);
+	x.Jacobi(m, b);
 	return 0;
 }

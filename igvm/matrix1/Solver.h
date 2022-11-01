@@ -5,6 +5,20 @@
 
 using namespace std;
 
+vector<double> operator+(vector<double>& a, vector<double>& b)
+{
+	vector<double> c(a.size());
+	for (int i = 0; i < a.size(); i++)
+		c[i] = a[i] + b[i];
+	return (c);
+}
+vector<double> operator+=(vector<double>& a, vector<double>& b)
+{
+	for (int i = 0; i < a.size(); i++)
+		a[i] += b[i];
+	return a;
+}
+
 class Solver : public Matrix, VectorB
 {
 public:
@@ -38,6 +52,81 @@ public:
 		cout << "\nVector x(G): ";
 		for (int i = 0; i < a.getKol_str(); i++)
 			cout << setw(3) << x[i];
+	}
+
+	double Norm(vector<double> x, vector<double> xk, unsigned n)
+	{
+		double norm = 0;
+		for (int i = 0; i < n; i++)
+			norm += pow((x[i] - xk[i]), 2);
+		norm = sqrt(norm);
+		return norm;
+	}
+
+	vector<double> Bx(vector<double>bv, vector<unsigned> bnc, vector<unsigned>bnl,
+		vector<double>x, int begin, int end)
+	{
+		vector<double> bx(bnl.size()-1);
+		for (int i = begin; i < end; i++)
+		{
+			double z = 0;
+			for (int j = bnl[i]; j < bnl[i + 1]; j++)
+				z += bv[j] * x[bnc[j]];
+			bx[i] = z;
+		}
+		return bx;
+	}
+
+	void Jacobi(Matrix& a, VectorB& b)
+	{
+		vector<double> c(a.getKol_str());
+		vector<double> bv(a.getKol_Nenul() - a.getKol_str());
+		vector<unsigned> bnc(a.getKol_Nenul() - a.getKol_str());
+		vector<unsigned> bnl(a.getKol_str()+1);
+		vector<double> diagonal(a.getKol_str());
+		for (int i = 0; i < a.getKol_str(); i++)
+		{
+			for (int j = a.getANL(i); j < a.getANL(i + 1); j++)
+				if (i == a.getANC(j))
+					diagonal[i]=a.getAV(j);
+		}
+		for (int i = 0, k=0; i < a.getKol_str(); i++)
+		{
+			for (int j = a.getANL(i); j < a.getANL(i + 1); j++)
+				if (i != a.getANC(j)) {
+					bv[k] = -a.getAV(j) / diagonal[i];
+					bnc[k++] = a.getANC(j);
+				}
+			bnl[i] = a.getANL(i) - i;
+			c[i] = b.getVectorB(i) / diagonal[i];
+		}
+		bnl[a.getKol_str()] = bv.size();
+		vector<double> x(a.getKol_str());
+		vector<double> xk(a.getKol_str());
+		do{
+			x = xk;
+			xk = Bx(bv, bnc, bnl, x, 0, a.getKol_str());
+			xk += c;
+		} while (Norm(x, xk, a.getKol_str()) > 1e-6);
+
+		cout << "\ndiagonal: ";
+		for (int i = 0; i < diagonal.size(); i++)
+			cout << setw(3) << diagonal[i];
+		cout << "\nBV: ";
+		for (int i = 0; i < bv.size(); i++)
+			cout << setw(10) << bv[i]; 
+		cout << "\nBNC: ";
+		for (int i = 0; i < bnc.size(); i++)
+			cout << setw(3) << bnc[i];
+		cout << "\nBNL: ";
+		for (int i = 0; i < bnl.size(); i++)
+			cout << setw(3) << bnl[i];
+		cout << "\nVector c: ";
+		for (int i = 0; i < c.size(); i++)
+			cout << setw(10) << c[i];
+		cout << "\nVector x(J): ";
+		for (int i = 0; i < a.getKol_str(); i++)
+			cout << setw(10) << x[i];
 	}
 
 };
