@@ -10,5 +10,7 @@ int main()
 	VectorB b;
 	b.calculationVectorB(m);
 	b.print();
+	Solver x;
+	x.Gauss(m, b);
 	return 0;
 }
