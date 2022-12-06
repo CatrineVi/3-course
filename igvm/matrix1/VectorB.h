@@ -12,19 +12,14 @@ public:
 	~VectorB() {}
 	void calculationVectorB(Matrix& a)
 	{
-		unsigned str0 = a.getANC(0);
-		double b0 = 0;
-		for (int i = 0; i < a.getKol_Nenul(); i++)
+		b.resize(a.getKol_str());
+		for (int i = 0; i < a.getKol_str(); i++)
 		{
-			if (str0 > a.getANC(i))
-			{
-				b.push_back(b0);
-				b0 = 0;
-			}
-			b0 += a.getAV(i);
-			str0 = a.getANC(i);
+			double z = 0;
+			for (int j = a.getANL(i); j < a.getANL(i + 1); j++)
+				z += a.getAV(j);
+			b[i] = z;
 		}
-		b.push_back(b0);
 	}
 
 	double getVectorB(unsigned i) { return b[i]; }
