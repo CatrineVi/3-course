@@ -5,7 +5,7 @@
 
 using namespace std;
 
-vector<double> operator+(vector<double>& a, vector<double>& b)
+vector<double> operator+(const vector<double>& a, const vector<double>& b)
 {
 	vector<double> c(a.size());
 	for (int i = 0; i < a.size(); i++)
@@ -63,18 +63,19 @@ public:
 		return norm;
 	}
 
-	vector<double> Bx(vector<double>bv, vector<unsigned> bnc, vector<unsigned>bnl,
-		vector<double>x, int begin, int end)
+	vector<double> Ax(vector<double>av, vector<unsigned> anc, vector<unsigned>anl,
+		vector<double>x)
 	{
-		vector<double> bx(bnl.size()-1);
-		for (int i = begin; i < end; i++)
+		vector<double> ax(anl.size()-1);
+		for (int i = 0; i < ax.size(); i++)
 		{
 			double z = 0;
-			for (int j = bnl[i]; j < bnl[i + 1]; j++)
-				z += bv[j] * x[bnc[j]];
-			bx[i] = z;
+			for (int j = anl[i]; j < anl[i + 1]; j++)
+				z += av[j] * x[anc[j]];
+			ax[i] = z;
 		}
-		return bx;
+		return ax;
+	}
 	}
 
 	void Jacobi(Matrix& a, VectorB& b)
@@ -130,4 +131,50 @@ public:
 	}
 
 };
+	void Zeidel(Matrix& a, VectorB& b)
+	{
+		vector<double> c(a.getKol_str());
+		vector<double> bv(a.getKol_Nenul() - a.getKol_str());
+		vector<unsigned> bnc(a.getKol_Nenul() - a.getKol_str());
+		vector<unsigned> bnl(a.getKol_str() + 1);
+		vector<double> diagonal(a.getKol_str());
+		for (int i = 0; i < a.getKol_str(); i++)
+		{
+			for (int j = a.getANL(i); j < a.getANL(i + 1); j++)
+				if (i == a.getANC(j))
+					diagonal[i] = a.getAV(j);
+		}
+		for (int i = 0, k = 0; i < a.getKol_str(); i++)
+		{
+			for (int j = a.getANL(i); j < a.getANL(i + 1); j++)
+				if (i != a.getANC(j)) {
+					bv[k] = -a.getAV(j) / diagonal[i];
+					bnc[k++] = a.getANC(j);
+				}
+			bnl[i] = a.getANL(i) - i;
+			c[i] = b.getVectorB(i) / diagonal[i];
+		}
+		bnl[a.getKol_str()] = bv.size();
+		vector<double> x(a.getKol_str());
+		vector<double> xk(a.getKol_str());
+		do {
+			x = xk;
+			for (int i = 0; i < a.getKol_str(); i++)
+			{
+				double z = 0;
+				for (int j = bnl[i]; j < bnl[i + 1]; j++)
+				{
+					if (bnc[j] < i)
+						z += bv[j] * xk[bnc[j]];
+					else if (bnc[j] > i)
+						z += bv[j] * x[bnc[j]];
+				}
+				z += c[i];
+				xk[i] = z;
+ 			}
+		} while (Norm(x, xk, a.getKol_str()) > 1e-8);
+		cout << "\nVector x(Z): ";
+		for (int i = 0; i < a.getKol_str(); i++)
+			cout << setw(3) << x[i];
+	}
 
