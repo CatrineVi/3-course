@@ -18,6 +18,19 @@ vector<double> operator+=(vector<double>& a, vector<double>& b)
 		a[i] += b[i];
 	return a;
 }
+vector<double> operator-(const vector<double>& a, const vector<double>& b)
+{
+	vector<double> c(a.size());
+	for (int i = 0; i < a.size(); i++)
+		c[i] = a[i] - b[i];
+	return (c);
+}
+vector<double> operator-=(vector<double>& a, vector<double>& b)
+{
+	for (int i = 0; i < a.size(); i++)
+		a[i] -= b[i];
+	return a;
+}
 
 class Solver : public Matrix, VectorB
 {
@@ -76,6 +89,21 @@ public:
 		}
 		return ax;
 	}
+
+	double ScalarProduct(vector<double>a, vector<double>b)
+	{
+		double sc = 0;
+		for (int i = 0; i < a.size(); i++)
+			sc += a[i] * b[i];
+		return sc;
+	}
+
+	vector<double> kx(double k, vector<double>x)
+	{
+		vector<double> kx(x.size());
+		for (int i = 0; i < x.size(); i++)
+			kx[i] = k * x[i];
+		return kx;
 	}
 
 	void Jacobi(Matrix& a, VectorB& b)
@@ -106,9 +134,10 @@ public:
 		vector<double> xk(a.getKol_str());
 		do{
 			x = xk;
-			xk = Bx(bv, bnc, bnl, x, 0, a.getKol_str());
+			xk = Ax(bv, bnc, bnl, x);
 			xk += c;
-		} while (Norm(x, xk, a.getKol_str()) > 1e-6);
+			iter++;
+		} while (Norm(x, xk, a.getKol_str()) > 1e-8);
 
 		cout << "\ndiagonal: ";
 		for (int i = 0; i < diagonal.size(); i++)
@@ -178,3 +207,22 @@ public:
 			cout << setw(3) << x[i];
 	}
 
+	void fastestDescent(Matrix& a, VectorB& b)
+	{
+		vector<double> x(a.getKol_str());
+		vector<double> xk(a.getKol_str());
+		vector<double> r(a.getKol_str());
+		do {
+			x = xk;
+			r = b.getVectorB();
+			r = r - Ax(a.getAV(), a.getANC(), a.getANL(), x);
+			double k = ScalarProduct(r, r)/
+				ScalarProduct(Ax(a.getAV(), a.getANC(), a.getANL(), r),r);
+			xk = x + kx(k, r);
+		} while (Norm(r, xk, a.getKol_str()) > 1e-8);
+
+		cout << "\nVector x(TFD): ";
+		for (int i = 0; i < a.getKol_str(); i++)
+			cout << setw(3) << x[i];
+	}
+};
