@@ -24,9 +24,9 @@ public:
 	{
 		kol_nenull = 0; kol_str = 0; kol_stl = 0; m = NULL;
 	}
-	void read()
+	void read(const string file)
 	{
-		ifstream fin("Test_int.mtx");
+		ifstream fin(file);
 		if (!fin)
 			cout << "Not found file" << endl;
 		else
@@ -36,13 +36,13 @@ public:
 
 			fin >> kol_str >> kol_stl >> kol_nenull;
 
-			m = new double* [kol_str];
+			/*m = new double* [kol_str];
 			for (int i = 0; i < kol_str; i++)
 				m[i] = new double[kol_stl];
 
 			for (int i = 0; i < kol_str; i++)
 				for (int j = 0; j < kol_stl; j++)
-					m[i][j] = 0;
+					m[i][j] = 0;*/
 
 			for (int i = 0; i < kol_str; i++) {
 				vector<double> v;
@@ -70,7 +70,7 @@ public:
 			for (int i = 0; i < kol_nenull; i++)
 			{
 				fin >> str >> stl >> znach;
-				m[str - 1][stl - 1] = znach;
+				//m[str - 1][stl - 1] = znach;
 
 				m1[str - 1][stl - 1] = znach;
 				temp.push_back(Node(str - 1, stl - 1, znach));
@@ -100,7 +100,9 @@ public:
 	double getAV(unsigned i) { return av[i]; }
 	vector<double> getAV() { return av; }
 	unsigned getANC(unsigned i) { return anc[i]; }
+	vector<unsigned> getANC() { return anc; }
 	unsigned getANL(unsigned i) { return anl[i]; }
+	vector<unsigned> getANL() { return anl; }
 	unsigned getKol_Nenul() { return kol_nenull; }
 	unsigned getKol_str() { return kol_str; }
 	unsigned getKol_stl() { return kol_stl; }

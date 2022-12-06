@@ -2,6 +2,7 @@
 #include "Matrix.h"
 #include "VectorB.h"
 #include<cmath>
+#include <ctime>
 
 using namespace std;
 
@@ -43,6 +44,8 @@ public:
 		vector<double> bg = b.getVectorB();
 		vector<vector<double>> mg = a.getMatrixM1();
 		//double** ag = a.getMatrix();
+		unsigned int start = clock();
+		int iter = 0;
 		for (int k = 0; k < a.getKol_str(); k++)
 		{
 			for (int i = k + 1; i < a.getKol_str(); i++)
@@ -58,13 +61,17 @@ public:
 		for (int k = a.getKol_str() - 2; k >= 0; k--)
 		{
 			double s = 0;
-			for (int j = k + 1; j <= a.getKol_stl() - 1; j++) 
+			for (int j = k + 1; j <= a.getKol_stl() - 1; j++,iter++)
 				s += mg[k][j] * x[j];
 			x[k]=(bg[k] - s) / mg[k][k];
 		}
+		unsigned int end = clock();
+		unsigned int time = end - start;
 		cout << "\nVector x(G): ";
 		for (int i = 0; i < a.getKol_str(); i++)
-			cout << setw(3) << x[i];
+			cout << " " << x[i];
+		cout << "\ntime(G): " << time;
+		cout << "\niterations(G): " << iter;
 	}
 
 	double Norm(vector<double> x, vector<double> xk, unsigned n)
@@ -119,6 +126,7 @@ public:
 				if (i == a.getANC(j))
 					diagonal[i]=a.getAV(j);
 		}
+
 		for (int i = 0, k=0; i < a.getKol_str(); i++)
 		{
 			for (int j = a.getANL(i); j < a.getANL(i + 1); j++)
@@ -130,16 +138,21 @@ public:
 			c[i] = b.getVectorB(i) / diagonal[i];
 		}
 		bnl[a.getKol_str()] = bv.size();
+
 		vector<double> x(a.getKol_str());
 		vector<double> xk(a.getKol_str());
+		int iter = 0;
+		unsigned int start = clock();
 		do{
 			x = xk;
 			xk = Ax(bv, bnc, bnl, x);
 			xk += c;
 			iter++;
 		} while (Norm(x, xk, a.getKol_str()) > 1e-8);
+		unsigned int end = clock();
+		unsigned int time = end - start;
 
-		cout << "\ndiagonal: ";
+		/*cout << "\ndiagonal: ";
 		for (int i = 0; i < diagonal.size(); i++)
 			cout << setw(3) << diagonal[i];
 		cout << "\nBV: ";
@@ -153,13 +166,14 @@ public:
 			cout << setw(3) << bnl[i];
 		cout << "\nVector c: ";
 		for (int i = 0; i < c.size(); i++)
-			cout << setw(10) << c[i];
+			cout << setw(10) << c[i];*/
 		cout << "\nVector x(J): ";
 		for (int i = 0; i < a.getKol_str(); i++)
-			cout << setw(10) << x[i];
+			cout << setw(3) << x[i];
+		cout << "\ntime(J): " << time;
+		cout << "\niterations(J): " << iter;
 	}
 
-};
 	void Zeidel(Matrix& a, VectorB& b)
 	{
 		vector<double> c(a.getKol_str());
@@ -186,6 +200,8 @@ public:
 		bnl[a.getKol_str()] = bv.size();
 		vector<double> x(a.getKol_str());
 		vector<double> xk(a.getKol_str());
+		int iter = 0;
+		unsigned int start = clock();
 		do {
 			x = xk;
 			for (int i = 0; i < a.getKol_str(); i++)
@@ -201,10 +217,15 @@ public:
 				z += c[i];
 				xk[i] = z;
  			}
+			iter++;
 		} while (Norm(x, xk, a.getKol_str()) > 1e-8);
+		unsigned int end = clock();
+		unsigned int time = end - start;
 		cout << "\nVector x(Z): ";
 		for (int i = 0; i < a.getKol_str(); i++)
 			cout << setw(3) << x[i];
+		cout << "\ntime(Z): " << time;
+		cout << "\niterations(Z): " << iter;
 	}
 
 	void fastestDescent(Matrix& a, VectorB& b)
@@ -212,6 +233,8 @@ public:
 		vector<double> x(a.getKol_str());
 		vector<double> xk(a.getKol_str());
 		vector<double> r(a.getKol_str());
+		int iter = 0;
+		unsigned int start = clock();
 		do {
 			x = xk;
 			r = b.getVectorB();
@@ -219,10 +242,15 @@ public:
 			double k = ScalarProduct(r, r)/
 				ScalarProduct(Ax(a.getAV(), a.getANC(), a.getANL(), r),r);
 			xk = x + kx(k, r);
+			iter++;
 		} while (Norm(r, xk, a.getKol_str()) > 1e-8);
+		unsigned int end = clock();
+		unsigned int time = end - start;
 
 		cout << "\nVector x(TFD): ";
 		for (int i = 0; i < a.getKol_str(); i++)
 			cout << setw(3) << x[i];
+		cout << "\ntime(tfd): " << time;
+		cout << "\niterations(tfd): " << iter;
 	}
 };

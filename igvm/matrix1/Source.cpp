@@ -5,13 +5,21 @@
 int main()
 {
 	Matrix m;
-	m.read();
-	m.print();
+	//string file = "Test_int.mtx";
+	//string file = "nos4.mtx";
+	string file = "Trefethen_500.mtx";
+	//string file = "msc01050.mtx";
+	//string file = "Trefethen_2000.mtx";
+	m.read(file);
+	//m.print();
 	VectorB b;
 	b.calculationVectorB(m);
-	b.print();
+	//b.print();
 	Solver x;
 	x.Gauss(m, b);
 	x.Jacobi(m, b);
+	x.Zeidel(m, b);
+	x.fastestDescent(m, b);
+
 	return 0;
 }
