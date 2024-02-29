@@ -9,6 +9,10 @@ class VectorB:public Matrix
 	vector<double> b;
 public:
 	VectorB() {}
+	VectorB(vector<double> _b) 
+	{
+		b = _b;
+	}
 	~VectorB() {}
 	void calculationVectorB(Matrix& a)
 	{
@@ -29,7 +33,7 @@ public:
 	{
 		cout << "\nVector b: ";
 		for (int i = 0; i < b.size(); i++)
-			cout << setw(3) << b[i];
+			cout << setw(3) << b[i] << "; ";
 	}
 
 };

@@ -20,6 +20,36 @@ class Matrix
 
 public:
 	Matrix() :kol_nenull(0), kol_str(0), kol_stl(0), m(NULL) {}
+	Matrix(unsigned _k_n, unsigned _k_str)
+	{
+		kol_nenull = _k_n;
+		kol_str = _k_str;
+		kol_stl = _k_str;
+		for (int i = 0; i < _k_n; i++)
+		{
+			av.push_back(0);
+			anc.push_back(0);
+		}
+		for (int i = 0; i < _k_str; i++)
+			anl.push_back(0);
+		anl.push_back(_k_n);
+	}
+	Matrix(unsigned _k_str)
+	{
+		kol_str = _k_str;
+		kol_stl = _k_str;
+		for (int i = 0; i < _k_str+1; i++)
+			anl.push_back(0);
+	}
+	Matrix(unsigned _k_n, unsigned _k_str, vector<double> _av, vector<unsigned> _anc, vector<unsigned> _anl)
+	{
+		kol_nenull = _k_n;
+		kol_str = _k_str;
+		kol_stl = _k_str;
+		av = _av;
+		anc = _anc;
+		anl = _anl;
+	}
 	~Matrix()
 	{
 		kol_nenull = 0; kol_str = 0; kol_stl = 0; m = NULL;
@@ -97,12 +127,72 @@ public:
 		fin.close();
 	}
 
+	bool check(unsigned _str, unsigned _stl)
+	{
+		for (int i = anl[_str]; i < anl[_str + 1]; i++)
+			if (_stl == anc[i])
+				return 1;
+		return 0;
+	}
+
+	void newEl(double _zn, unsigned _str, unsigned _stl)
+	{
+		if (av.empty())
+		{
+			kol_nenull++;
+			av.push_back(_zn);
+			anc.push_back(_stl);
+			anl.push_back(0);
+			anl.push_back(kol_nenull);
+		}
+		else if (check(_str, _stl))
+		{
+			for (int i = anl[_str]; i < anl[_str + 1]; i++)
+				if (_stl == anc[i])
+					av[i] = _zn;
+		}
+		else {
+			kol_nenull++;
+			auto iter1 = av.cbegin();
+			auto iter2 = anc.cbegin();
+			auto iter3 = anl.cend();
+			if (_str > anl.size()-1)
+			{
+				av.push_back(_zn);
+				anc.push_back(_stl);
+				anl.insert(iter3-1, kol_nenull - 1);
+			}
+			else {
+				for (int i = anl[_str]; i < anl[_str + 1]; i++)
+				{
+					if (_stl < anc[i])
+					{
+						av.insert(iter1 + i, _zn);
+						anc.insert(iter2 + i, _stl);
+						break;
+					}
+				}
+			}
+			for (int i = _str + 1; i < anl.size(); i++)
+				anl[i] += 1;
+		}
+	}
+
 	double getAV(unsigned i) { return av[i]; }
 	vector<double> getAV() { return av; }
+	void setAV(unsigned i, double zn) { av[i] = zn; }
+	void setAV(vector<double> v) { av = v; }
+
 	unsigned getANC(unsigned i) { return anc[i]; }
 	vector<unsigned> getANC() { return anc; }
+	void setANC(unsigned i, unsigned zn) { anc[i] = zn; }
+	void setANC(vector<unsigned> v) { anc = v; }
+
 	unsigned getANL(unsigned i) { return anl[i]; }
 	vector<unsigned> getANL() { return anl; }
+	void setANL(unsigned i, unsigned zn) { anl[i] = zn; }
+	void setANL(vector<unsigned> v) { anc = v; }
+
 	unsigned getKol_Nenul() { return kol_nenull; }
 	unsigned getKol_str() { return kol_str; }
 	unsigned getKol_stl() { return kol_stl; }
@@ -116,25 +206,33 @@ public:
 		/*for (int i = 0; i < kol_str; i++)
 		{
 			for (int j = 0; j < kol_stl; j++)
-				cout << setw(3) << m[i][j];
-			cout << endl;
-		}*/
-		for (int i = 0; i < kol_str; i++)
-		{
-			for (int j = 0; j < kol_stl; j++)
 				cout << setw(3) << m1[i][j];
 			cout << endl;
-		}
+		}*/
 		cout << "\nav: ";
 		for (int i = 0; i < kol_nenull; i++)
-			cout << setw(3) << av[i];
+			cout << setw(3) << av[i] <<"; ";
 
 		cout << "\nanc: ";
 		for (int i = 0; i < kol_nenull; i++)
 			cout << setw(3) << anc[i];
 
 		cout << "\nanl: ";
-		for (int i = 0; i < kol_str + 1; i++)
+		for (int i = 0; i < anl.size(); i++)
 			cout << setw(3) << anl[i];
+	}
+	void print(vector<vector<double>> m)
+	{
+		for (int i = 0; i < kol_str; i++)
+		{
+			for (int j = 0; j < kol_stl; j++)
+				cout << setw(3) << m[i][j];
+			cout << endl;
+		}
+	}
+	void print(vector<double> v)
+	{
+		for (int i = 0; i < v.size(); i++)
+			cout << setw(3) << v[i] << ";";
 	}
 };

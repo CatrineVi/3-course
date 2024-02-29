@@ -1,0 +1,109 @@
+﻿  Source.cpp
+C:\Users\Catherine\OneDrive\Документы\GitHub\3-course\igvm\matrix1\Source.cpp(1,10): warning C4067: unexpected tokens following preprocessor directive - expected a newline
+C:\Users\Catherine\OneDrive\Документы\GitHub\3-course\igvm\matrix1\Matrix.h(28,21): warning C4018: '<': signed/unsigned mismatch
+C:\Users\Catherine\OneDrive\Документы\GitHub\3-course\igvm\matrix1\Matrix.h(33,21): warning C4018: '<': signed/unsigned mismatch
+C:\Users\Catherine\OneDrive\Документы\GitHub\3-course\igvm\matrix1\Matrix.h(41,21): warning C4018: '<': signed/unsigned mismatch
+C:\Users\Catherine\OneDrive\Документы\GitHub\3-course\igvm\matrix1\Matrix.h(77,22): warning C4018: '<': signed/unsigned mismatch
+C:\Users\Catherine\OneDrive\Документы\GitHub\3-course\igvm\matrix1\Matrix.h(79,23): warning C4018: '<': signed/unsigned mismatch
+C:\Users\Catherine\OneDrive\Документы\GitHub\3-course\igvm\matrix1\Matrix.h(100,22): warning C4018: '<': signed/unsigned mismatch
+C:\Users\Catherine\OneDrive\Документы\GitHub\3-course\igvm\matrix1\Matrix.h(132,29): warning C4018: '<': signed/unsigned mismatch
+C:\Users\Catherine\OneDrive\Документы\GitHub\3-course\igvm\matrix1\Matrix.h(150,30): warning C4018: '<': signed/unsigned mismatch
+C:\Users\Catherine\OneDrive\Документы\GitHub\3-course\igvm\matrix1\Matrix.h(166,31): warning C4018: '<': signed/unsigned mismatch
+C:\Users\Catherine\OneDrive\Документы\GitHub\3-course\igvm\matrix1\Matrix.h(213,21): warning C4018: '<': signed/unsigned mismatch
+C:\Users\Catherine\OneDrive\Документы\GitHub\3-course\igvm\matrix1\Matrix.h(217,21): warning C4018: '<': signed/unsigned mismatch
+C:\Users\Catherine\OneDrive\Документы\GitHub\3-course\igvm\matrix1\Matrix.h(226,21): warning C4018: '<': signed/unsigned mismatch
+C:\Users\Catherine\OneDrive\Документы\GitHub\3-course\igvm\matrix1\Matrix.h(228,22): warning C4018: '<': signed/unsigned mismatch
+C:\Users\Catherine\OneDrive\Документы\GitHub\3-course\igvm\matrix1\Source.cpp(2,10): warning C4067: unexpected tokens following preprocessor directive - expected a newline
+C:\Users\Catherine\OneDrive\Документы\GitHub\3-course\igvm\matrix1\VectorB.h(2,10): warning C4067: unexpected tokens following preprocessor directive - expected a newline
+C:\Users\Catherine\OneDrive\Документы\GitHub\3-course\igvm\matrix1\VectorB.h(20,21): warning C4018: '<': signed/unsigned mismatch
+C:\Users\Catherine\OneDrive\Документы\GitHub\3-course\igvm\matrix1\VectorB.h(23,32): warning C4018: '<': signed/unsigned mismatch
+C:\Users\Catherine\OneDrive\Документы\GitHub\3-course\igvm\matrix1\Source.cpp(3,10): warning C4067: unexpected tokens following preprocessor directive - expected a newline
+C:\Users\Catherine\OneDrive\Документы\GitHub\3-course\igvm\matrix1\Solver.h(24,48): warning C4018: '<': signed/unsigned mismatch
+C:\Users\Catherine\OneDrive\Документы\GitHub\3-course\igvm\matrix1\Solver.h(24,71): warning C4018: '<': signed/unsigned mismatch
+C:\Users\Catherine\OneDrive\Документы\GitHub\3-course\igvm\matrix1\Solver.h(104,31): warning C4018: '<': signed/unsigned mismatch
+C:\Users\Catherine\OneDrive\Документы\GitHub\3-course\igvm\matrix1\Solver.h(116,31): warning C4018: '<': signed/unsigned mismatch
+C:\Users\Catherine\OneDrive\Документы\GitHub\3-course\igvm\matrix1\Solver.h(131,32): warning C4018: '<': signed/unsigned mismatch
+C:\Users\Catherine\OneDrive\Документы\GitHub\3-course\igvm\matrix1\Solver.h(134,34): warning C4018: '<': signed/unsigned mismatch
+C:\Users\Catherine\OneDrive\Документы\GitHub\3-course\igvm\matrix1\Solver.h(186,23): warning C4584: 'Solver': base-class 'Matrix' is already a base-class of 'VectorB'
+C:\Users\Catherine\OneDrive\Документы\GitHub\3-course\igvm\matrix1\Matrix.h(12): message : see declaration of 'Matrix'
+C:\Users\Catherine\OneDrive\Документы\GitHub\3-course\igvm\matrix1\VectorB.h(7): message : see declaration of 'VectorB'
+C:\Users\Catherine\OneDrive\Документы\GitHub\3-course\igvm\matrix1\Solver.h(202,21): warning C4018: '<': signed/unsigned mismatch
+C:\Users\Catherine\OneDrive\Документы\GitHub\3-course\igvm\matrix1\Solver.h(210,21): warning C4018: '<': signed/unsigned mismatch
+C:\Users\Catherine\OneDrive\Документы\GitHub\3-course\igvm\matrix1\Solver.h(219,21): warning C4018: '<': signed/unsigned mismatch
+C:\Users\Catherine\OneDrive\Документы\GitHub\3-course\igvm\matrix1\Solver.h(222,22): warning C4018: '<': signed/unsigned mismatch
+C:\Users\Catherine\OneDrive\Документы\GitHub\3-course\igvm\matrix1\Solver.h(232,21): warning C4018: '<': signed/unsigned mismatch
+C:\Users\Catherine\OneDrive\Документы\GitHub\3-course\igvm\matrix1\Solver.h(234,32): warning C4018: '<': signed/unsigned mismatch
+C:\Users\Catherine\OneDrive\Документы\GitHub\3-course\igvm\matrix1\Solver.h(238,23): warning C4018: '<': signed/unsigned mismatch
+C:\Users\Catherine\OneDrive\Документы\GitHub\3-course\igvm\matrix1\Solver.h(248,21): warning C4018: '<': signed/unsigned mismatch
+C:\Users\Catherine\OneDrive\Документы\GitHub\3-course\igvm\matrix1\Solver.h(251,22): warning C4018: '<': signed/unsigned mismatch
+C:\Users\Catherine\OneDrive\Документы\GitHub\3-course\igvm\matrix1\Solver.h(261,21): warning C4018: '<': signed/unsigned mismatch
+C:\Users\Catherine\OneDrive\Документы\GitHub\3-course\igvm\matrix1\Solver.h(264,22): warning C4018: '<': signed/unsigned mismatch
+C:\Users\Catherine\OneDrive\Документы\GitHub\3-course\igvm\matrix1\Solver.h(266,32): warning C4018: '<': signed/unsigned mismatch
+C:\Users\Catherine\OneDrive\Документы\GitHub\3-course\igvm\matrix1\Solver.h(271,36): warning C4018: '>': signed/unsigned mismatch
+C:\Users\Catherine\OneDrive\Документы\GitHub\3-course\igvm\matrix1\Solver.h(275,23): warning C4018: '<': signed/unsigned mismatch
+C:\Users\Catherine\OneDrive\Документы\GitHub\3-course\igvm\matrix1\Solver.h(286,21): warning C4018: '<': signed/unsigned mismatch
+C:\Users\Catherine\OneDrive\Документы\GitHub\3-course\igvm\matrix1\Solver.h(294,21): warning C4018: '<': signed/unsigned mismatch
+C:\Users\Catherine\OneDrive\Документы\GitHub\3-course\igvm\matrix1\Solver.h(297,22): warning C4018: '<': signed/unsigned mismatch
+C:\Users\Catherine\OneDrive\Документы\GitHub\3-course\igvm\matrix1\Solver.h(302,26): warning C4018: '<': signed/unsigned mismatch
+C:\Users\Catherine\OneDrive\Документы\GitHub\3-course\igvm\matrix1\Solver.h(305,23): warning C4018: '<': signed/unsigned mismatch
+C:\Users\Catherine\OneDrive\Документы\GitHub\3-course\igvm\matrix1\Solver.h(318,23): warning C4018: '<': signed/unsigned mismatch
+C:\Users\Catherine\OneDrive\Документы\GitHub\3-course\igvm\matrix1\Solver.h(354,1): warning C4267: 'argument': conversion from 'size_t' to 'unsigned int', possible loss of data
+C:\Users\Catherine\OneDrive\Документы\GitHub\3-course\igvm\matrix1\Solver.h(368,33): warning C4018: '<': signed/unsigned mismatch
+C:\Users\Catherine\OneDrive\Документы\GitHub\3-course\igvm\matrix1\Solver.h(371,35): warning C4018: '<': signed/unsigned mismatch
+C:\Users\Catherine\OneDrive\Документы\GitHub\3-course\igvm\matrix1\Solver.h(413,21): warning C4018: '<': signed/unsigned mismatch
+C:\Users\Catherine\OneDrive\Документы\GitHub\3-course\igvm\matrix1\Solver.h(427,22): warning C4018: '<': signed/unsigned mismatch
+C:\Users\Catherine\OneDrive\Документы\GitHub\3-course\igvm\matrix1\Solver.h(450,35): warning C4018: '<': signed/unsigned mismatch
+C:\Users\Catherine\OneDrive\Документы\GitHub\3-course\igvm\matrix1\Solver.h(452,32): warning C4018: '<': signed/unsigned mismatch
+C:\Users\Catherine\OneDrive\Документы\GitHub\3-course\igvm\matrix1\Solver.h(454,11): warning C4018: '>=': signed/unsigned mismatch
+C:\Users\Catherine\OneDrive\Документы\GitHub\3-course\igvm\matrix1\Solver.h(457,11): warning C4018: '<=': signed/unsigned mismatch
+C:\Users\Catherine\OneDrive\Документы\GitHub\3-course\igvm\matrix1\Solver.h(465,21): warning C4018: '<': signed/unsigned mismatch
+C:\Users\Catherine\OneDrive\Документы\GitHub\3-course\igvm\matrix1\Solver.h(468,32): warning C4018: '<': signed/unsigned mismatch
+C:\Users\Catherine\OneDrive\Документы\GitHub\3-course\igvm\matrix1\Solver.h(474,35): warning C4018: '<': signed/unsigned mismatch
+C:\Users\Catherine\OneDrive\Документы\GitHub\3-course\igvm\matrix1\Solver.h(487,32): warning C4018: '<': signed/unsigned mismatch
+C:\Users\Catherine\OneDrive\Документы\GitHub\3-course\igvm\matrix1\Solver.h(490,33): warning C4018: '<': signed/unsigned mismatch
+C:\Users\Catherine\OneDrive\Документы\GitHub\3-course\igvm\matrix1\Solver.h(493,35): warning C4018: '<': signed/unsigned mismatch
+C:\Users\Catherine\OneDrive\Документы\GitHub\3-course\igvm\matrix1\Solver.h(545,21): warning C4018: '<': signed/unsigned mismatch
+C:\Users\Catherine\OneDrive\Документы\GitHub\3-course\igvm\matrix1\Solver.h(547,26): warning C4018: '<': signed/unsigned mismatch
+C:\Users\Catherine\OneDrive\Документы\GitHub\3-course\igvm\matrix1\Solver.h(551,23): warning C4018: '<': signed/unsigned mismatch
+C:\Users\Catherine\OneDrive\Документы\GitHub\3-course\igvm\matrix1\Solver.h(560,26): warning C4018: '<=': signed/unsigned mismatch
+C:\Users\Catherine\OneDrive\Документы\GitHub\3-course\igvm\matrix1\Solver.h(567,21): warning C4018: '<': signed/unsigned mismatch
+C:\Users\Catherine\OneDrive\Документы\GitHub\3-course\igvm\matrix1\Solver.h(578,21): warning C4018: '<': signed/unsigned mismatch
+C:\Users\Catherine\OneDrive\Документы\GitHub\3-course\igvm\matrix1\Solver.h(580,32): warning C4018: '<': signed/unsigned mismatch
+C:\Users\Catherine\OneDrive\Документы\GitHub\3-course\igvm\matrix1\Solver.h(585,28): warning C4018: '<': signed/unsigned mismatch
+C:\Users\Catherine\OneDrive\Документы\GitHub\3-course\igvm\matrix1\Solver.h(587,32): warning C4018: '<': signed/unsigned mismatch
+C:\Users\Catherine\OneDrive\Документы\GitHub\3-course\igvm\matrix1\Solver.h(608,21): warning C4018: '<': signed/unsigned mismatch
+C:\Users\Catherine\OneDrive\Документы\GitHub\3-course\igvm\matrix1\Solver.h(621,21): warning C4018: '<': signed/unsigned mismatch
+C:\Users\Catherine\OneDrive\Документы\GitHub\3-course\igvm\matrix1\Solver.h(623,32): warning C4018: '<': signed/unsigned mismatch
+C:\Users\Catherine\OneDrive\Документы\GitHub\3-course\igvm\matrix1\Solver.h(627,28): warning C4018: '<': signed/unsigned mismatch
+C:\Users\Catherine\OneDrive\Документы\GitHub\3-course\igvm\matrix1\Solver.h(629,32): warning C4018: '<': signed/unsigned mismatch
+C:\Users\Catherine\OneDrive\Документы\GitHub\3-course\igvm\matrix1\Solver.h(637,1): warning C4267: '=': conversion from 'size_t' to '_Ty', possible loss of data
+          with
+          [
+              _Ty=unsigned int
+          ]
+C:\Users\Catherine\OneDrive\Документы\GitHub\3-course\igvm\matrix1\Solver.h(644,22): warning C4018: '<': signed/unsigned mismatch
+C:\Users\Catherine\OneDrive\Документы\GitHub\3-course\igvm\matrix1\Solver.h(647,28): warning C4018: '<': signed/unsigned mismatch
+C:\Users\Catherine\OneDrive\Документы\GitHub\3-course\igvm\matrix1\Solver.h(649,17): warning C4018: '<': signed/unsigned mismatch
+C:\Users\Catherine\OneDrive\Документы\GitHub\3-course\igvm\matrix1\Solver.h(651,22): warning C4018: '>': signed/unsigned mismatch
+C:\Users\Catherine\OneDrive\Документы\GitHub\3-course\igvm\matrix1\Solver.h(662,21): warning C4018: '<': signed/unsigned mismatch
+C:\Users\Catherine\OneDrive\Документы\GitHub\3-course\igvm\matrix1\Solver.h(688,21): warning C4018: '<': signed/unsigned mismatch
+C:\Users\Catherine\OneDrive\Документы\GitHub\3-course\igvm\matrix1\Solver.h(714,22): warning C4018: '<': signed/unsigned mismatch
+C:\Users\Catherine\OneDrive\Документы\GitHub\3-course\igvm\matrix1\Solver.h(794,21): warning C4018: '<': signed/unsigned mismatch
+C:\Users\Catherine\OneDrive\Документы\GitHub\3-course\igvm\matrix1\Solver.h(909,21): warning C4018: '<': signed/unsigned mismatch
+C:\Users\Catherine\OneDrive\Документы\GitHub\3-course\igvm\matrix1\Solver.h(921,21): warning C4018: '<': signed/unsigned mismatch
+C:\Users\Catherine\OneDrive\Документы\GitHub\3-course\igvm\matrix1\Solver.h(1014,21): warning C4018: '<': signed/unsigned mismatch
+C:\Users\Catherine\OneDrive\Документы\GitHub\3-course\igvm\matrix1\Solver.h(1049,21): warning C4018: '<': signed/unsigned mismatch
+C:\Users\Catherine\OneDrive\Документы\GitHub\3-course\igvm\matrix1\Solver.h(1060,32): warning C4018: '<': signed/unsigned mismatch
+C:\Users\Catherine\OneDrive\Документы\GitHub\3-course\igvm\matrix1\Solver.h(1072,32): warning C4018: '<': signed/unsigned mismatch
+C:\Users\Catherine\OneDrive\Документы\GitHub\3-course\igvm\matrix1\Solver.h(1082,33): warning C4018: '<': signed/unsigned mismatch
+C:\Users\Catherine\OneDrive\Документы\GitHub\3-course\igvm\matrix1\Solver.h(1101,33): warning C4018: '<': signed/unsigned mismatch
+C:\Users\Catherine\OneDrive\Документы\GitHub\3-course\igvm\matrix1\Solver.h(1122,33): warning C4018: '<': signed/unsigned mismatch
+C:\Users\Catherine\OneDrive\Документы\GitHub\3-course\igvm\matrix1\Element.h(26,21): warning C4267: 'return': conversion from 'size_t' to 'unsigned int', possible loss of data
+C:\Users\Catherine\OneDrive\Документы\GitHub\3-course\igvm\matrix1\Mesh.h(23,21): warning C4018: '<': signed/unsigned mismatch
+C:\Users\Catherine\OneDrive\Документы\GitHub\3-course\igvm\matrix1\Mesh.h(45,1): warning C4267: 'initializing': conversion from 'size_t' to 'unsigned int', possible loss of data
+C:\Users\Catherine\OneDrive\Документы\GitHub\3-course\igvm\matrix1\Mesh.h(46,21): warning C4018: '<': signed/unsigned mismatch
+C:\Users\Catherine\OneDrive\Документы\GitHub\3-course\igvm\matrix1\Mesh.h(83,1): warning C4267: 'initializing': conversion from 'size_t' to 'unsigned int', possible loss of data
+C:\Users\Catherine\OneDrive\Документы\GitHub\3-course\igvm\matrix1\Mesh.h(88,21): warning C4018: '<': signed/unsigned mismatch
+C:\Users\Catherine\OneDrive\Документы\GitHub\3-course\igvm\matrix1\Mesh.h(107,1): warning C4267: 'initializing': conversion from 'size_t' to 'unsigned int', possible loss of data
+C:\Users\Catherine\OneDrive\Документы\GitHub\3-course\igvm\matrix1\Mesh.h(111,21): warning C4018: '<': signed/unsigned mismatch
+  matrix1.vcxproj -> C:\Users\Catherine\OneDrive\Документы\GitHub\3-course\igvm\x64\Debug\matrix1.exe
