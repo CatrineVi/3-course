@@ -1,0 +1,9 @@
+﻿  4.1.cpp
+C:\Users\Catherine\OneDrive\Документы\GitHub\3-course\ChM\Labs\4.1\4.1.cpp(54,8): warning C4244: 'initializing': conversion from 'double' to 'int', possible loss of data
+C:\Users\Catherine\OneDrive\Документы\GitHub\3-course\ChM\Labs\4.1\4.1.cpp(57,8): warning C4244: 'initializing': conversion from 'double' to 'int', possible loss of data
+C:\Users\Catherine\OneDrive\Документы\GitHub\3-course\ChM\Labs\4.1\4.1.cpp(110,8): warning C4244: 'initializing': conversion from 'double' to 'int', possible loss of data
+C:\Users\Catherine\OneDrive\Документы\GitHub\3-course\ChM\Labs\4.1\4.1.cpp(122,8): warning C4244: 'initializing': conversion from 'double' to 'int', possible loss of data
+C:\Users\Catherine\OneDrive\Документы\GitHub\3-course\ChM\Labs\4.1\4.1.cpp(326,14): warning C4244: 'argument': conversion from 'double' to 'const unsigned __int64', possible loss of data
+C:\Users\Catherine\OneDrive\Документы\GitHub\3-course\ChM\Labs\4.1\4.1.cpp(326,26): warning C4244: 'argument': conversion from 'double' to 'const unsigned __int64', possible loss of data
+C:\Users\Catherine\OneDrive\Документы\GitHub\3-course\ChM\Labs\4.1\4.1.cpp(327,17): warning C4244: 'argument': conversion from 'double' to 'const unsigned __int64', possible loss of data
+  4.1.vcxproj -> C:\Users\Catherine\OneDrive\Документы\GitHub\3-course\ChM\Labs\x64\Debug\4.1.exe
