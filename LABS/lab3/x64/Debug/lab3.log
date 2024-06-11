@@ -1,0 +1,9 @@
+﻿  Palette.cpp
+C:\Users\Catherine\OneDrive\Документы\GitHub\3-course\LABS\lab3\Palette.cpp(50,24): warning C4244: 'argument': conversion from 'int' to 'float', possible loss of data
+C:\Users\Catherine\OneDrive\Документы\GitHub\3-course\LABS\lab3\Palette.cpp(57,24): warning C4244: 'argument': conversion from 'int' to 'float', possible loss of data
+C:\Users\Catherine\OneDrive\Документы\GitHub\3-course\LABS\lab3\Palette.cpp(64,24): warning C4244: 'argument': conversion from 'int' to 'float', possible loss of data
+C:\Users\Catherine\OneDrive\Документы\GitHub\3-course\LABS\lab3\Palette.cpp(86,20): warning C4018: '<': signed/unsigned mismatch
+C:\Users\Catherine\OneDrive\Документы\GitHub\3-course\LABS\lab3\Palette.cpp(88,21): warning C4018: '<': signed/unsigned mismatch
+C:\Users\Catherine\OneDrive\Документы\GitHub\3-course\LABS\lab3\Palette.cpp(106,20): warning C4018: '<': signed/unsigned mismatch
+C:\Users\Catherine\OneDrive\Документы\GitHub\3-course\LABS\lab3\Palette.cpp(108,21): warning C4018: '<': signed/unsigned mismatch
+  lab3.vcxproj -> C:\Users\Catherine\OneDrive\Документы\GitHub\3-course\LABS\x64\Debug\lab3.exe

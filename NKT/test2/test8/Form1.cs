@@ -402,6 +402,11 @@ namespace test8
             method = "1";
         }
 
+        private void glControl1_Load(object sender, EventArgs e)
+        {
+
+        }
+
         private void button5_Click(object sender, EventArgs e)
         {
             method = "2";

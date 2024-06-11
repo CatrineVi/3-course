@@ -133,7 +133,6 @@
     <Text Include="lab4.txt" />
   </ItemGroup>
   <ItemGroup>
-    <ClInclude Include="Main.h" />
     <ClInclude Include="Modify.h" />
     <ClInclude Include="operators.h" />
     <ClInclude Include="String.h" />

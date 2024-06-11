@@ -29,7 +29,7 @@ namespace test7
             rnd = new Random();
         }
         Random rnd;
-        int N = 500;
+        int N = 15;
         double h = 0.5;
         int[,] adjMat;
         List<double[]> graph;

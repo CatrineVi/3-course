@@ -1,0 +1,24 @@
+﻿  Source.cpp
+C:\Users\Catherine\OneDrive\Документы\GitHub\3-course\LABS\lab1\Source.cpp(22,10): warning C4067: unexpected tokens following preprocessor directive - expected a newline
+C:\Users\Catherine\OneDrive\Документы\GitHub\3-course\LABS\lab1\Memory.h(2,10): warning C4067: unexpected tokens following preprocessor directive - expected a newline
+C:\Users\Catherine\OneDrive\Документы\GitHub\3-course\LABS\lab1\Memory.h(3,10): warning C4067: unexpected tokens following preprocessor directive - expected a newline
+C:\Users\Catherine\OneDrive\Документы\GitHub\3-course\LABS\lab1\Memory.h(4,10): warning C4067: unexpected tokens following preprocessor directive - expected a newline
+C:\Users\Catherine\OneDrive\Документы\GitHub\3-course\LABS\lab1\Memory.h(6,10): warning C4067: unexpected tokens following preprocessor directive - expected a newline
+C:\Users\Catherine\OneDrive\Документы\GitHub\3-course\LABS\lab1\Memory.h(7,10): warning C4067: unexpected tokens following preprocessor directive - expected a newline
+C:\Users\Catherine\OneDrive\Документы\GitHub\3-course\LABS\lab1\Source.cpp(23,10): warning C4067: unexpected tokens following preprocessor directive - expected a newline
+C:\Users\Catherine\OneDrive\Документы\GitHub\3-course\LABS\lab1\HDD.h(2,10): warning C4067: unexpected tokens following preprocessor directive - expected a newline
+C:\Users\Catherine\OneDrive\Документы\GitHub\3-course\LABS\lab1\HDD.h(3,10): warning C4067: unexpected tokens following preprocessor directive - expected a newline
+C:\Users\Catherine\OneDrive\Документы\GitHub\3-course\LABS\lab1\HDD.h(4,10): warning C4067: unexpected tokens following preprocessor directive - expected a newline
+C:\Users\Catherine\OneDrive\Документы\GitHub\3-course\LABS\lab1\HDD.h(5,10): warning C4067: unexpected tokens following preprocessor directive - expected a newline
+C:\Users\Catherine\OneDrive\Документы\GitHub\3-course\LABS\lab1\Source.cpp(24,10): warning C4067: unexpected tokens following preprocessor directive - expected a newline
+C:\Users\Catherine\OneDrive\Документы\GitHub\3-course\LABS\lab1\SSD.h(2,10): warning C4067: unexpected tokens following preprocessor directive - expected a newline
+C:\Users\Catherine\OneDrive\Документы\GitHub\3-course\LABS\lab1\SSD.h(3,10): warning C4067: unexpected tokens following preprocessor directive - expected a newline
+C:\Users\Catherine\OneDrive\Документы\GitHub\3-course\LABS\lab1\SSD.h(4,10): warning C4067: unexpected tokens following preprocessor directive - expected a newline
+C:\Users\Catherine\OneDrive\Документы\GitHub\3-course\LABS\lab1\SSD.h(5,10): warning C4067: unexpected tokens following preprocessor directive - expected a newline
+C:\Users\Catherine\OneDrive\Документы\GitHub\3-course\LABS\lab1\Source.cpp(25,10): warning C4067: unexpected tokens following preprocessor directive - expected a newline
+C:\Users\Catherine\OneDrive\Документы\GitHub\3-course\LABS\lab1\RAM.h(2,10): warning C4067: unexpected tokens following preprocessor directive - expected a newline
+C:\Users\Catherine\OneDrive\Документы\GitHub\3-course\LABS\lab1\RAM.h(3,10): warning C4067: unexpected tokens following preprocessor directive - expected a newline
+C:\Users\Catherine\OneDrive\Документы\GitHub\3-course\LABS\lab1\RAM.h(4,10): warning C4067: unexpected tokens following preprocessor directive - expected a newline
+C:\Users\Catherine\OneDrive\Документы\GitHub\3-course\LABS\lab1\RAM.h(5,10): warning C4067: unexpected tokens following preprocessor directive - expected a newline
+C:\Users\Catherine\OneDrive\Документы\GitHub\3-course\LABS\lab1\Source.cpp(114,21): warning C4018: '<': signed/unsigned mismatch
+  lab1.vcxproj -> C:\Users\Catherine\OneDrive\Документы\GitHub\3-course\LABS\x64\Debug\lab1.exe

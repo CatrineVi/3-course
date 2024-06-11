@@ -1,0 +1,5 @@
+﻿  Source.cpp
+C:\Users\Catherine\OneDrive\Документы\GitHub\3-course\LABS\lab4\String.h(17,1): warning C4267: 'return': conversion from 'size_t' to 'int', possible loss of data
+C:\Users\Catherine\OneDrive\Документы\GitHub\3-course\LABS\lab4\operators.h(42,37): warning C4267: 'initializing': conversion from 'size_t' to 'int', possible loss of data
+C:\Users\Catherine\OneDrive\Документы\GitHub\3-course\LABS\lab4\Source.cpp(9,6): warning C4101: 'choice': unreferenced local variable
+  lab4.vcxproj -> C:\Users\Catherine\OneDrive\Документы\GitHub\3-course\LABS\x64\Debug\lab4.exe

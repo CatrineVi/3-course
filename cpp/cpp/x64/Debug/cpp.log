@@ -1,0 +1,3 @@
+﻿  Source.cpp
+C:\Users\Catherine\OneDrive\Документы\GitHub\3-course\cpp\cpp\Source.cpp(95,26): warning C4267: 'initializing': conversion from 'size_t' to 'int', possible loss of data
+  cpp.vcxproj -> C:\Users\Catherine\OneDrive\Документы\GitHub\3-course\cpp\x64\Debug\cpp.exe
